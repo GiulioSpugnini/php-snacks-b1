@@ -1,13 +1,13 @@
 <?php
 $name = $_GET ? $_GET['name'] : '';
-echo $name;
-
-
 $mail = $_GET ? $_GET['mail'] : '';
-echo $mail;
-
 $age = $_GET ? $_GET['age'] : '';
-echo $age; ?>
+echo "$name $mail $age"; 
+if(strlen($name)>3 && str_contains($mail,'.') && str_contains($mail,'@') && !is_nan($age)){
+    echo 'Accesso riuscito';    
+}
+else echo 'Accesso negato';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
