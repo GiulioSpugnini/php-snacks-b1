@@ -43,9 +43,6 @@ $posts = [
     ],
 ];
 
-$item=array_keys($posts);
-
-
 ?>
 
 <!DOCTYPE html>
@@ -62,14 +59,21 @@ $item=array_keys($posts);
     <h4>
         <ul>
             <?php
-            for ($i = 0; $i < count($posts); $i++) :  ?>
-                
-                <li>
-                    <h3>
-                        <?= $posts[$item[$i]][0]['title'] . ' ' . $posts[$item[$i]][0]['author'] . ' ' . $posts[$item[$i]][0]['text']
-                        ?>
-                    </h3>
-                </li>;
+            for ($i = 0; $i < count($posts); $i++) :
+                $item = key($posts);
+                echo "<h1>Data: $item</h1>";
+            ?>
+                <?php
+                for ($j = 0; $j < count($posts[$item]); $j++) :  ?>
+
+                    <li>
+                        <h3>
+                            <?= $posts[$item][$j]['title'] . ' ' . $posts[$item][$j]['author'] . ' ' . $posts[$item][$j]['text'];
+                            ?>
+                        </h3>
+                    </li>
+                <?php endfor; ?>
+                <?php next($posts); ?>
             <?php endfor; ?>
 
         </ul>
