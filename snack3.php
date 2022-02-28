@@ -4,8 +4,8 @@ Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà co
 <?php 
     $array= [];
     while(count($array)<15){
-        $random_number= rand(0,100);
-        if(in_array($random_number,$array)) array_push($array,$random_number);
+        $random_number[]= rand(0,100);
+        $array = array_unique($random_number);
     }
 ?>
 
